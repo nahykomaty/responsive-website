@@ -1,3 +1,59 @@
+/* source-sans-3-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/source-sans-3-v19-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* source-sans-3-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/source-sans-3-v19-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/*Fonts*/
+:root {
+  --fs-14: calc(14 / 16 * 1rem);
+  --fs-16: calc(16 / 16 * 1rem);
+  --fs-24: calc(24 / 16 * 1rem);
+  --fs-36: calc(36 / 16 * 1rem);
+  --fs-42: calc(42 / 16 * 1rem);
+  --fs-48: calc(48 / 16 * 1rem);
+  --fs-72: calc(72 / 16 * 1rem);
+  --font-size-topnav: var(--fs-14);
+  --font-size-h1: var(--fs-42);
+  --font-size-h2: var(--fs-36);
+  --font-size-h3: var(--fs-24);
+
+  @media (width >= calc(600 / 16 * 1rem)) {
+    --font-size-topnav: var(--fs-16);
+    --font-size-h1: var(--fs-72);
+    --font-size-h2: var(--fs-48);
+    --font-size-h3: var(--fs-24);
+  }
+}
+/* colors */
+:root {
+  --color-white: hsl(0, 0%, 100%);
+  --grey-dark: hsl(233, 14%, 25%);
+  --purple: hsl(232, 58%, 55%);
+  --teal: hsl(180, 100%, 42%);
+  --transparent: transparent;
+  --magenta: hsl(320, 85%, 41%);
+
+  --color-main-bg: var(--color-white);
+  --color-text-dart: var(--grey-dark);
+  --color-text-light: var(--color-white);
+  --coloe-hero-bg: var(--purple);
+  --color-button-primary-bg: var(--teal);
+  --color-button-primary-text: var(--grey-dark);
+  --color-button-secondary-bg: var(--transparent);
+  --color-fullwidth-bg: var(--magenta);
+}
 *,
 *::before,
 *::after {
@@ -6,6 +62,25 @@
 
 * {
   margin: 0;
+}
+
+body {
+  font-family: "Source Sans 3", Arial, Helvetica, sans-serif;
+  line-height: 1.3;
+}
+h1,
+h2,
+h3 {
+  line-height: 1.1;
+}
+h1 {
+  font-size: var(--font-size-h1);
+}
+h2 {
+  font-size: var(--font-size-h2);
+}
+h3 {
+  font-size: var(--font-size-h3);
 }
 
 a {
@@ -17,4 +92,9 @@ picture,
 svg {
   max-width: 100%;
   display: block;
+}
+
+.wrapper {
+  width: min(calc(100% - 48px), calc(1200 / 16 * 1rem));
+  margin-inline: auto;
 }
