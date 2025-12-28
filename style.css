@@ -51,7 +51,8 @@
     --color-main-bg: var(--color-white);
     --color-text-dart: var(--grey-dark);
     --color-text-light: var(--color-white);
-    --coloe-hero-bg: var(--purple);
+    --color-header-bg: var(--purple);
+    --color-hero-bg: var(--purple);
     --color-button-primary-bg: var(--teal);
     --color-button-primary-text: var(--grey-dark);
     --color-button-secondary-bg: var(--transparent);
@@ -70,6 +71,7 @@
   body {
     font-family: "Source Sans 3", Arial, Helvetica, sans-serif;
     line-height: 1.3;
+    padding-block-end: 50vh; /*temporary*/
   }
   h1,
   h2,
@@ -104,6 +106,37 @@
 }
 
 @layer component {
+  .topnav {
+    background-color: var(--color-header-bg);
+    .topnav__wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topnav__homaelink {
+    }
+    .topnav__logo {
+    }
+    .topnav__links {
+      display: flex;
+      gap: 20px;
+      list-style-type: none;
+      padding: 0;
+
+      @media (width >= calc(600 / 16 * 1rem)) {
+        gap: 40px;
+      }
+    }
+    .topnav__item {
+    }
+    .topnav__link {
+      font-size: var(--font-size-topnav);
+      font-weight: 700; /*bold we can use Bold instead of 700 */
+      letter-spacing: 0.05em; /* i.e 5% of font size we can use 5 */
+      text-transform: uppercase;
+      color: var(--color-text-light);
+    }
+  }
 }
 @layer utility {
   .visually-hidden {
@@ -113,5 +146,14 @@
     width: 1px;
     height: 1px;
     overflow: hidden;
+
+    &.skip:focus {
+      left: 0;
+      width: auto;
+      height: auto;
+      background: #fff;
+      padding: 10px;
+      border: 1px solid;
+    }
   }
 }
